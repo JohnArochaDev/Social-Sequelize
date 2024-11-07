@@ -1,6 +1,5 @@
 const { Comment, Like, Post, Profile, User } = require("./index");
 const { db } = require('./db/connection.js');
-const { sequelize } = require('./db/connection.js');
 
 describe('Social Sequelzie Test', () => {
     /**
@@ -9,7 +8,7 @@ describe('Social Sequelzie Test', () => {
     beforeAll(async () => {
         // the 'sync' method will create tables based on the model class
         // by setting 'force:true' the tables are recreated each time the test suite is run
-        await sequelize.sync({ force: true });
+        await db.sync({ force: true });
     })
 
     // Write your tests here
@@ -17,10 +16,9 @@ describe('Social Sequelzie Test', () => {
     test("replace with your test", function() {
         expect(true).toBe(true);
     })
+
+    
     describe('Social Sequelize Test', () => {
-        beforeAll(async () => {
-            await sequelize.sync({ force: true });
-        });
 
         test('User has one Profile', async () => {
             expect(User.associations.Profile).toBeDefined();

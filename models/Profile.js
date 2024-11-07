@@ -1,5 +1,5 @@
-import { db } from '../db/connection.js'
-import { Sequelize, DataTypes, Model } from 'sequelize'
+const { db } = require('../db/connection.js')
+const { Sequelize, DataTypes, Model } = require('sequelize')
 
 class Profile extends Sequelize.Model{}
 
@@ -8,7 +8,7 @@ Profile.init({
     profilePicture: DataTypes.STRING,
     birthdat: DataTypes.STRING
 }, {
-    sequelize,
+    sequelize: db,
     modelName: 'Profile'
 })
 
